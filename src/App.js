@@ -1,6 +1,7 @@
 import React from "react";
 import firebase from "./firebase";
 import CommentBox from "./components/CommentBox";
+import "./App.css";
 
 /*
  * Ideally, we would create a page component and have the
@@ -62,7 +63,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="siteContainer">
+        <h1>Comment Box Demo</h1>
         <CommentBox
           addComment={this.addComment}
           deleteComment={this.deleteComment}

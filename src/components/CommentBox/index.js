@@ -24,7 +24,7 @@ class CommentBox extends React.Component {
       this.setState({
         name: "",
         email: "",
-        comment: "",
+        comment: ""
       });
     }
   };
@@ -33,10 +33,10 @@ class CommentBox extends React.Component {
     const { comments, deleteComment } = this.props;
     return (
       <div>
-        <form onSubmit={this.addComment}>
-          <div>Please enter your comment here:</div>
-          <div>
+        <form className="formContainer" onSubmit={this.addComment}>
+          <div className="nameAndEmailContainer">
             <input
+              className="nameInput"
               type="text"
               name="name"
               placeholder="Name"
@@ -44,16 +44,26 @@ class CommentBox extends React.Component {
               onChange={this.updateInput}
             />
             <input
+              className="emailInput"
               type="email"
               name="email"
               placeholder="Email"
               value={this.state.email}
               onChange={this.updateInput}
             />
-            <textarea name="comment" value={this.state.comment} onChange={this.updateInput} />
+          </div>
+          <div className="commentContainer">
+            <textarea
+              className="commentInput"
+              name="comment"
+              placeholder="Your comment"
+              value={this.state.comment}
+              onChange={this.updateInput}
+            />
           </div>
           <button type="submit">Add Comment!</button>
         </form>
+        <hr />
         <ul>
           {comments &&
             comments.map(comment => (

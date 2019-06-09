@@ -1,4 +1,5 @@
 import React from "react";
+import "./index.css";
 
 // Should probably make this a configurable param but it's fine for demo purposes
 const REDIRECT_URL = "https://www.alomoves.com/hashtags/";
@@ -16,13 +17,20 @@ function processHashtags(text) {
 }
 
 const Comment = ({ name, timestamp, email, text, deleteComment, id }) => (
-  <div>
-    {name}
-    {timestamp}
-    {email}
-    <span dangerouslySetInnerHTML={{ __html: processHashtags(text) }} />
-    {id}
-    <button onClick={() => deleteComment(id)}>Delete Comment</button>
+  <div className="commentContainer">
+    <div className="commentMain">
+      <header className="commentHeader">
+        <p>{name}</p>
+        <p>{timestamp}</p>
+        <p>{email}</p>
+      </header>
+      <div className="commentContent">
+        <span dangerouslySetInnerHTML={{ __html: processHashtags(text) }} />
+      </div>
+    </div>
+    <div className="commentRight">
+      <button onClick={() => deleteComment(id)}>Delete Comment</button>
+    </div>
   </div>
 );
 

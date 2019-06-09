@@ -1,0 +1,27 @@
+.commentContainer {
+  width: 100%;
+  display: flex;
+}
+
+.commentMain {
+    width: 80%;
+}
+
+.commentRight {
+    width: 20%;
+}
+
+.commentHeader {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  line-height: 10px;
+}
+
+.commentHeader p {
+    margin: 4px 0;
+}
+
+.commentContent {
+  width: 100%;
+}

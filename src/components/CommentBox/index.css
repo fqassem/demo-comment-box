@@ -1,0 +1,53 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-bottom: 12px;
+}
+
+.nameAndEmailContainer,
+.commentContainer {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.nameAndEmailContainer {
+  flex-direction: column;
+}
+
+.nameInput, .emailInput {
+    margin-bottom: 12px;
+}
+
+.nameInput {
+  width: 100%;
+}
+
+.emailInput {
+  width: 100%;
+}
+
+.commentInput {
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .nameAndEmailContainer {
+    flex-direction: row;
+  }
+
+  .nameInput, .emailInput {
+    margin-bottom: 0px;
+}
+
+  .nameInput {
+    width: 46%;
+    margin-right: 4%;
+  }
+
+  .emailInput {
+    width: 46%;
+    margin-left: 4%;
+  }
+}
