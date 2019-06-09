@@ -1,53 +1,44 @@
-.formContainer {
+.formContainer,
+.noComments {
   display: flex;
   flex-direction: column;
-  max-width: 500px;
-  margin: 0 auto;
-  margin-bottom: 12px;
+  margin: 30px auto;
+  max-width: 600px;
 }
 
-.nameAndEmailContainer,
-.commentContainer {
-  display: flex;
-  margin-bottom: 12px;
+.noComments {
+  text-align: center;
 }
 
-.nameAndEmailContainer {
-  flex-direction: column;
+label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 4px;
 }
 
-.nameInput, .emailInput {
-    margin-bottom: 12px;
-}
-
-.nameInput {
-  width: 100%;
-}
-
-.emailInput {
-  width: 100%;
-}
-
+.nameInput,
+.emailInput,
 .commentInput {
   width: 100%;
+  margin-bottom: 12px;
 }
 
-@media (min-width: 600px) {
-  .nameAndEmailContainer {
-    flex-direction: row;
-  }
-
-  .nameInput, .emailInput {
-    margin-bottom: 0px;
+.commentsList {
+  list-style-type: none;
+  margin: 0 auto;
 }
 
-  .nameInput {
-    width: 46%;
-    margin-right: 4%;
-  }
+.commentsList li {
+  border-bottom: 1px solid gray;
+  padding: 12px 0;
+}
 
-  .emailInput {
-    width: 46%;
-    margin-left: 4%;
-  }
+.submitComment {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 10px;
+  background-color: transparent;
+  color: navy;
+  border: 1px solid navy;
 }

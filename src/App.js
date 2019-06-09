@@ -13,7 +13,7 @@ class App extends React.Component {
   fbUnsubscribe = null;
 
   state = {
-    comments: "",
+    comments: null,
     error: null
   };
 
@@ -62,14 +62,17 @@ class App extends React.Component {
   };
 
   render() {
+    const { comments } = this.state;
     return (
       <div className="siteContainer">
         <h1>Comment Box Demo</h1>
-        <CommentBox
-          addComment={this.addComment}
-          deleteComment={this.deleteComment}
-          comments={this.state.comments}
-        />
+        {
+          <CommentBox
+            addComment={this.addComment}
+            deleteComment={this.deleteComment}
+            comments={comments}
+          />
+        }
       </div>
     );
   }

@@ -9,6 +9,9 @@
 
 .commentRight {
     width: 20%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .commentHeader {
@@ -20,8 +23,11 @@
 
 .commentHeader p {
     margin: 4px 0;
+    font-size: 12px;
+    color: #777777;
 }
 
 .commentContent {
   width: 100%;
+  margin-top: 10px;
 }
