@@ -18,8 +18,15 @@ class CommentBox extends React.Component {
   addComment = e => {
     e.preventDefault();
     const { name, email, comment } = this.state;
-    // validate input
-    this.props.addComment(name, email, comment);
+
+    if (name && email && comment) {
+      this.props.addComment(name, email, comment);
+      this.setState({
+        name: "",
+        email: "",
+        comment: "",
+      });
+    }
   };
 
   render() {
@@ -27,21 +34,23 @@ class CommentBox extends React.Component {
     return (
       <div>
         <form onSubmit={this.addComment}>
-          <div>Please enter your current comment here:</div>
+          <div>Please enter your comment here:</div>
           <div>
             <input
               type="text"
               name="name"
               placeholder="Name"
+              value={this.state.name}
               onChange={this.updateInput}
             />
             <input
               type="email"
               name="email"
               placeholder="Email"
+              value={this.state.email}
               onChange={this.updateInput}
             />
-            <textarea name="comment" onChange={this.updateInput} />
+            <textarea name="comment" value={this.state.comment} onChange={this.updateInput} />
           </div>
           <button type="submit">Add Comment!</button>
         </form>
