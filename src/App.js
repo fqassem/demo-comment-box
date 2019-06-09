@@ -8,7 +8,7 @@ import CommentBox from "./components/CommentBox";
  * but this is fine for a demo.
  */
 class App extends React.Component {
-  db = firebase.firestore();
+  commentsRef = firebase.firestore().collection("comments");
   fbUnsubscribe = null;
 
   state = {
@@ -17,16 +17,13 @@ class App extends React.Component {
   };
 
   componentWillMount() {
-    this.fbUnsubscribe = this.db
-      .collection("comments")
-      .orderBy("date_created", "asc")
+    this.fbUnsubscribe = this.commentsRef
+      .orderBy("timestamp", "asc")
       .onSnapshot({
         next: snapshot => {
-          const commentDataWithId = snapshot.docs.map(doc =>
+          const sortedCommentDataWithId = snapshot.docs.map(doc =>
             Object.assign({}, doc.data(), { id: doc.id })
           );
-          const sortedCommentDataWithId = commentDataWithId;
-          console.log(snapshot.docs[0]);
           this.setState({
             comments: sortedCommentDataWithId
           });
@@ -41,17 +38,26 @@ class App extends React.Component {
   componentWillUnmount() {
     this.fbUnsubscribe && this.fbUnsubscribe();
   }
-  
-  addComment = (name, email, comment) => {
-    this.db
-      .collection("comments")
-      .add({
+
+  addComment = async (name, email, comment) => {
+    try {
+      await this.commentsRef.add({
         name,
         email,
         comment,
-        date_created: new Date()
-      })
-      .catch(error => this.setState({ error }));
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      });
+    } catch (e) {
+      this.setState({ e });
+    }
+  };
+
+  deleteComment = async id => {
+    try {
+      await this.commentsRef.doc(id).delete();
+    } catch (e) {
+      this.setState({ e });
+    }
   };
 
   render() {
@@ -59,6 +65,7 @@ class App extends React.Component {
       <div>
         <CommentBox
           addComment={this.addComment}
+          deleteComment={this.deleteComment}
           comments={this.state.comments}
         />
       </div>

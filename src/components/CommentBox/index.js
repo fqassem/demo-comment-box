@@ -1,4 +1,5 @@
 import React from "react";
+import Comment from "./Comment";
 import "./index.css";
 
 class CommentBox extends React.Component {
@@ -22,7 +23,7 @@ class CommentBox extends React.Component {
   };
 
   render() {
-    const { comments } = this.props;
+    const { comments, deleteComment } = this.props;
     return (
       <div>
         <form onSubmit={this.addComment}>
@@ -47,11 +48,18 @@ class CommentBox extends React.Component {
         <ul>
           {comments &&
             comments.map(comment => (
-              <li>
-                <span>{comment.id} </span>
-                <span>{comment.name}</span>
-                <span>{comment.email} </span>
-                <span>{comment.comment}</span>
+              <li key={comment.id}>
+                <Comment
+                  deleteComment={() => deleteComment(comment.id)}
+                  name={comment.name}
+                  email={comment.email}
+                  text={comment.comment}
+                  timestamp={
+                    comment.timestamp
+                      ? comment.timestamp.toDate().toString()
+                      : "..."
+                  }
+                />
               </li>
             ))}
         </ul>
