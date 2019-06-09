@@ -17,7 +17,7 @@ class App extends React.Component {
     error: null
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.fbUnsubscribe = this.commentsRef
       .orderBy("timestamp", "asc")
       .onSnapshot({

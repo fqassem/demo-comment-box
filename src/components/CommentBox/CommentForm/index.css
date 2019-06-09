@@ -1,0 +1,24 @@
+.formContainer,
+.noComments {
+  display: flex;
+  flex-direction: column;
+  margin: 30px auto;
+  max-width: 600px;
+}
+
+.nameInput,
+.emailInput,
+.commentInput {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.submitComment {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 10px;
+  background-color: transparent;
+  color: navy;
+  border: 1px solid navy;
+}

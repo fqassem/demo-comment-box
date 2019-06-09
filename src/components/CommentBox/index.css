@@ -1,4 +1,3 @@
-.formContainer,
 .noComments {
   display: flex;
   flex-direction: column;
@@ -16,13 +15,6 @@ label {
   margin-bottom: 4px;
 }
 
-.nameInput,
-.emailInput,
-.commentInput {
-  width: 100%;
-  margin-bottom: 12px;
-}
-
 .commentsList {
   list-style-type: none;
   margin: 0 auto;
@@ -33,12 +25,4 @@ label {
   padding: 12px 0;
 }
 
-.submitComment {
-  padding: 10px 20px;
-  font-size: 14px;
-  font-weight: 700;
-  margin-top: 10px;
-  background-color: transparent;
-  color: navy;
-  border: 1px solid navy;
-}
+

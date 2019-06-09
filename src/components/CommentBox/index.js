@@ -1,4 +1,5 @@
 import React from "react";
+import CommentForm from "./CommentForm";
 import Comment from "./Comment";
 import LoadingIndicator from "../LoadingIndicator";
 import "./index.css";
@@ -39,7 +40,7 @@ class CommentBox extends React.Component {
     });
   };
 
-  renderComments = () => {
+  renderCommentsList = () => {
     const { comments, deleteComment } = this.props;
     if (comments.length === 0) {
       return <div className="noComments">Be the first to comment!</div>;
@@ -65,40 +66,15 @@ class CommentBox extends React.Component {
   render() {
     return (
       <div>
-        <form className="formContainer" onSubmit={this.addComment}>
-          <div className="nameContainer">
-            <label forName="name">Name:</label>
-            <input
-              className="nameInput"
-              type="text"
-              name="name"
-              value={this.state.name}
-              onChange={this.updateInput}
-            />
-          </div>
-          <div className="emailContainer">
-            <label forName="email">Email:</label>
-            <input
-              className="emailInput"
-              type="email"
-              name="email"
-              value={this.state.email}
-              onChange={this.updateInput}
-            />
-          </div>
-          <div className="userCommentContainer">
-            <label forName="comment">Comment:</label>
-            <textarea
-              className="commentInput"
-              name="comment"
-              value={this.state.comment}
-              onChange={this.updateInput}
-            />
-          </div>
-          <button type="submit" className="submitComment">Add Comment!</button>
-        </form>
+        <CommentForm
+          name={this.state.name}
+          email={this.state.email}
+          comment={this.state.comment}
+          onUpdate={this.updateInput}
+          onSubmit={this.addComment}
+        />
         <hr />
-        {this.props.comments ? this.renderComments() : <LoadingIndicator />}
+        {this.props.comments ? this.renderCommentsList() : <LoadingIndicator />}
       </div>
     );
   }
