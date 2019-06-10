@@ -1,5 +1,5 @@
 import React from "react";
-import CommentBox from '../../components/CommentBox';
+import CommentBox from "../../components/CommentBox";
 import firebase from "../../firebase";
 
 class CommentsContainer extends React.Component {

@@ -4,14 +4,14 @@
 }
 
 .commentMain {
-    width: 80%;
+  width: 80%;
 }
 
 .commentRight {
-    width: 20%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+  width: 20%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .commentHeader {
@@ -22,9 +22,9 @@
 }
 
 .commentHeader p {
-    margin: 4px 0;
-    font-size: 12px;
-    color: #777777;
+  margin: 4px 0;
+  font-size: 12px;
+  color: #777777;
 }
 
 .commentContent {

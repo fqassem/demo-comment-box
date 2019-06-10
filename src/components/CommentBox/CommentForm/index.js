@@ -1,8 +1,8 @@
-import React from 'react';
-import './index.css';
+import React from "react";
+import "./index.css";
 
-const CommentForm = ({ name, email, comment, onSubmit, onUpdate}) => (
-    <form className="formContainer" onSubmit={onSubmit}>
+const CommentForm = ({ name, email, comment, onSubmit, onUpdate }) => (
+  <form className="formContainer" onSubmit={onSubmit}>
     <div className="nameContainer">
       <label forName="name">Name:</label>
       <input
