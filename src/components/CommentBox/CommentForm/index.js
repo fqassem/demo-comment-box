@@ -36,7 +36,7 @@ const CommentForm = ({ name, email, comment, onSubmit, onUpdate }) => (
       />
     </div>
     <button type="submit" className="submitComment">
-      Add Comment!
+      Submit
     </button>
   </form>
 );

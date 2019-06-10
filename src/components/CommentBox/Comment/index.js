@@ -29,7 +29,7 @@ const Comment = ({ name, timestamp, email, text, deleteComment, id }) => (
       </div>
     </div>
     <div className="commentRight">
-      <button onClick={() => deleteComment(id)}>Delete Comment</button>
+      <button onClick={() => deleteComment(id)}>Delete</button>
     </div>
   </div>
 );

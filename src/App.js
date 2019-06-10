@@ -6,7 +6,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="siteContainer">
-        <h1>Comment Box Demo</h1>
+        <h1>Comments Demo</h1>
         <Comments />
       </div>
     );
