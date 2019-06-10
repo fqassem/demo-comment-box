@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import CommentForm from "./CommentForm";
 import Comment from "./Comment";
 import LoadingIndicator from "../LoadingIndicator";
@@ -45,21 +46,22 @@ class CommentBox extends React.Component {
     if (comments.length === 0) {
       return <div className="noComments">Be the first to comment!</div>;
     } else {
-      return comments.map(comment => (
+      return (
         <ul className="commentsList">
-          <li key={comment.id}>
-            <Comment
-              deleteComment={() => deleteComment(comment.id)}
-              name={comment.name}
-              email={comment.email}
-              text={comment.comment}
-              timestamp={
-                comment.timestamp ? this.formatDate(comment.timestamp) : "..."
-              }
-            />
-          </li>
+          {comments.map(comment => (
+            <li key={comment.id}>
+              <Comment
+                deleteComment={() => deleteComment(comment.id)}
+                name={comment.name}
+                text={comment.comment}
+                timestamp={
+                  comment.timestamp ? this.formatDate(comment.timestamp) : "..."
+                }
+              />
+            </li>
+          ))}
         </ul>
-      ));
+      );
     }
   };
 
@@ -79,4 +81,9 @@ class CommentBox extends React.Component {
     );
   }
 }
+
+CommentBox.propTypes = {
+  comments: PropTypes.array,
+  deleteComment: PropTypes.func.isRequired
+};
 export default CommentBox;

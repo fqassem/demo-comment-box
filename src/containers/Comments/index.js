@@ -67,4 +67,5 @@ class CommentsContainer extends React.Component {
     );
   }
 }
+
 export default CommentsContainer;

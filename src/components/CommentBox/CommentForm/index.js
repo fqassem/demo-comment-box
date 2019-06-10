@@ -1,10 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./index.css";
 
 const CommentForm = ({ name, email, comment, onSubmit, onUpdate }) => (
   <form className="formContainer" onSubmit={onSubmit}>
     <div className="nameContainer">
-      <label forName="name">Name:</label>
+      <label htmlFor="name">Name:</label>
       <input
         className="nameInput"
         type="text"
@@ -15,7 +16,7 @@ const CommentForm = ({ name, email, comment, onSubmit, onUpdate }) => (
       />
     </div>
     <div className="emailContainer">
-      <label forName="email">Email:</label>
+      <label htmlFor="email">Email:</label>
       <input
         className="emailInput"
         type="email"
@@ -26,7 +27,7 @@ const CommentForm = ({ name, email, comment, onSubmit, onUpdate }) => (
       />
     </div>
     <div className="userCommentContainer">
-      <label forName="comment">Comment:</label>
+      <label htmlFor="comment">Comment:</label>
       <textarea
         className="commentInput"
         name="comment"
@@ -40,5 +41,13 @@ const CommentForm = ({ name, email, comment, onSubmit, onUpdate }) => (
     </button>
   </form>
 );
+
+CommentForm.propTypes = {
+  name: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  comment: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  onUpdate: PropTypes.func.isRequired
+};
 
 export default CommentForm;

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./index.css";
 
 // Should probably make this a configurable param but it's fine for demo purposes
@@ -16,13 +17,12 @@ function processHashtags(text) {
   return textWithHashtags;
 }
 
-const Comment = ({ name, timestamp, email, text, deleteComment, id }) => (
+const Comment = ({ name, timestamp, text, deleteComment, id }) => (
   <div className="commentContainer">
     <div className="commentMain">
       <header className="commentHeader">
         <p>{name}</p>
         <p>{timestamp}</p>
-        <p>{email}</p>
       </header>
       <div className="commentContent">
         <span dangerouslySetInnerHTML={{ __html: processHashtags(text) }} />
@@ -33,5 +33,13 @@ const Comment = ({ name, timestamp, email, text, deleteComment, id }) => (
     </div>
   </div>
 );
+
+Comment.propTypes = {
+  name: PropTypes.string,
+  timestamp: PropTypes.string,
+  text: PropTypes.string,
+  id: PropTypes.string,
+  deleteComment: PropTypes.func.isRequired
+};
 
 export default Comment;
