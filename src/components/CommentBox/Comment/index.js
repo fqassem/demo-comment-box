@@ -8,11 +8,22 @@ const REDIRECT_URL = "https://www.alomoves.com/hashtags/";
 /*
  * Replace hashTags with links
  * Logic from: https://stackoverflow.com/questions/13655333/how-do-i-use-javascript-to-replace-hash-tags-with-links-from-a-jquery-data-attri
+ * 
+ * I pulled the bits of the regex from multiple sources. It will work for
+ * most cases, but only for ASCII characters. We'll need a heavier
+ * duty regex for supporting other languages. There is a Unicode standard
+ * that defines how a regex should behave, but it seems most companies like
+ * Instagram, Twitter, etc use their own interpretation of the standard.
+ * 
+ * For the sake of simplicity, my regex assumes there's a space in front of 
+ * the hashtag character or it's at the beginning of a string. This doesn't meet
+ * the Unicode standard but it's fine for a demo. A valid hashtag is upper and lowercase
+ * letters
  */
 function processHashtags(text) {
   const textWithHashtags = text.replace(
-    /#(\S*)/g,
-    `<a href="${REDIRECT_URL}$1" target="_blank">#$1</a>`
+    /(^|\s)#([a-zA-Z\d-]+)/g,
+    `$1<a href="${REDIRECT_URL}$2" target="_blank">#$2</a>`
   );
   return textWithHashtags;
 }
