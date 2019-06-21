@@ -1,6 +1,4 @@
-# Alo Moves Front End Project
-
-This project was bootstrapped with Create-React-App. Note that you will need to supply your own *src/firebase.js* file that is formatted like the one in the [project instructions](https://gist.github.com/brianlittmann/4017e8ff6a42b6c44ada47c7e8e3eacc) with your own keys.
+# Simple Comment Form Demo
 
 ## Tour
 
