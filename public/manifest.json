@@ -1,6 +1,6 @@
 {
-  "short_name": "Alo Moves",
-  "name": "Alo Moves Frontend App",
+  "short_name": "Demo Comment Box",
+  "name": "Demo Comment Box with Firebase",
   "icons": [
     {
       "src": "favicon.ico",
