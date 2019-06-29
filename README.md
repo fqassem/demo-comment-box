@@ -1,5 +1,8 @@
 # Simple Comment Form Demo
 
+## Running the App
+Add your credentials to *src/firebase.js*, *npm install*, and *npm run start*.
+
 ## Tour
 
 *App.js* is the heart of the application, where we display the title of the page and render a Comments container.
